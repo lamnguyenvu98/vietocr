@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VietOCR"
+version = "0.3.13"
+authors = [
+    {name = "Vu Lam Nguyen", email = "lamnguyenvu98@gmail.com"},
+]
+description = "VietOCR - Nhan dien chu tieng viet"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools]
+packages = { find = { where = ["."], include = ["vietocr", "vietocr.*"] } }
+package-data = { "vietocr" = ["**/*.yaml", "../config/*.yml", "../image/*"] }
+
+# [project.scripts]
+# server-run = "src.__main__:main"
